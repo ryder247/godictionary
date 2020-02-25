@@ -1,0 +1,55 @@
+// main app overrides
+ion-toolbar {
+  margin: 1rem 0;
+}
+
+ion-header.blue {
+  background-color: #0963e1;
+  background-image: url('../assets/godictionary/go-nav-bg.svg');
+  background-position: -2rem -4rem;
+  background-repeat: no-repeat;
+}
+
+ion-header.yellow {
+  background-color: #ffeb00;
+  background-image: url('../assets/godictionary/go-nav-bg.svg');
+  background-position: -2rem -4rem;
+  background-repeat: no-repeat;
+}
+
+.header-ios ion-toolbar:last-child {
+  --border-width: 0 !important;
+}
+
+ion-input.sc-ion-input-md-h.sc-ion-input-md-s.md.hydrated,
+ion-input.sc-ion-input-ios-h.sc-ion-input-ios-s.ios.hydrated {
+  background: white;
+  border-radius: 30rem;
+  padding: 0 1rem !important;
+  color: #262626;
+}
+
+.home-nav {
+  display: flex;
+
+  align-items: center;
+  margin: 1rem;
+  ion-icon {
+    color: yellow;
+    background-color: #0963e1;
+    padding: 0.2rem;
+    border-radius: 20rem;
+    font-size: 2rem;
+  }
+  span {
+    font-size: 2rem;
+    margin-left: 0.5rem;
+    color: #0963e1;
+  }
+}
+
+.list-md {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background: unset;
+}

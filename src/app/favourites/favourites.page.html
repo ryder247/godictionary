@@ -1,0 +1,20 @@
+<ion-header class="yellow">
+  <ion-toolbar color="transparent">
+    <ion-buttons slot="start">
+      <ion-back-button color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="primary">
+      Favourites
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list lines="none">
+    <ion-item *ngFor="let favourite of favourites">
+      {{favourite.word}}
+      <div class="item-note" slot="end">
+        {{favourite.addedat}}
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
