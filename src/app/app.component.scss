@@ -1,6 +1,15 @@
 .bg-img {
-  background-image: url('./../assets/godictionary/go-bg-all.svg');
-  height: 99vh;
+  background-image: url('./../assets/godictionary/splash.png');
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+}
+
+ion-split-pane,
+ion-content,
+ion-list {
+  background-image: url('./../assets/godictionary/sidenav.png');
+  height: 100vh;
   background-position: center center;
   background-size: cover;
 }

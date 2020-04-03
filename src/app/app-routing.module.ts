@@ -32,12 +32,16 @@ const routes: Routes = [
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
   },
   {
-    path: 'listdetail/:word',
+    path: 'listdetail/:id/:word/:wordtype/:wordmeaning',
     loadChildren: () => import('./list-detail/list-detail.module').then(m => m.ListDetailPageModule)
   },
   {
     path: 'help',
     loadChildren: () => import('./help/help.module').then(m => m.HelpPageModule)
+  },
+  {
+    path: 'rateus',
+    loadChildren: () => import('./rateus/rateus.module').then( m => m.RateusPageModule)
   }
 ];
 

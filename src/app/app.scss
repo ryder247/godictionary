@@ -4,14 +4,14 @@ ion-toolbar {
 }
 
 ion-header.blue {
-  background-color: #0963e1;
-  background-image: url('../assets/godictionary/go-nav-bg.svg');
-  background-position: -2rem -4rem;
+  background-color: #6e0761;
+  background-image: url('../assets/godictionary/image-nav.png');
+  background-position: cover;
   background-repeat: no-repeat;
 }
 
 ion-header.yellow {
-  background-color: #ffeb00;
+  background-color: #c20b5b;
   background-image: url('../assets/godictionary/go-nav-bg.svg');
   background-position: -2rem -4rem;
   background-repeat: no-repeat;
@@ -31,20 +31,23 @@ ion-input.sc-ion-input-ios-h.sc-ion-input-ios-s.ios.hydrated {
 
 .home-nav {
   display: flex;
-
+  flex-direction: column;
   align-items: center;
-  margin: 1rem;
+  margin: 3rem;
   ion-icon {
-    color: yellow;
-    background-color: #0963e1;
+    color: #fff;
+    background-color: #fff;
     padding: 0.2rem;
     border-radius: 20rem;
     font-size: 2rem;
+    &:first-child {
+      background-color: #4500ff;
+    }
   }
   span {
     font-size: 2rem;
     margin-left: 0.5rem;
-    color: #0963e1;
+    color: #fff;
   }
 }
 

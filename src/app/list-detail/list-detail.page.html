@@ -1,12 +1,25 @@
 <ion-header class="yellow">
   <ion-toolbar color="transparent">
     <ion-buttons slot="start">
-      <ion-back-button color="primary"></ion-back-button>
+      <ion-back-button color="light"></ion-back-button>
     </ion-buttons>
-    <ion-title color="primary">
-      Word here
-    </ion-title>
+    <ion-title color="light"> </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content class="ion-padding" style="height: 100%;">
+  <ion-grid style="height: 100%;">
+    <ion-row class="flex-column ion-justify-content-between" style="height: 100%;">
+      <ion-col size="12">
+        <h1 class="font-weight-bold ion-">{{ word.word }}</h1>
+        <small class="font-weight-bold">{{ word.wordtype }}</small>
+        <p class="font-weight-bold">{{ word.wordmeaning }}</p>
+      </ion-col>
+      <ion-col size="12" class="ion-text-center">
+        <img src="../../assets/godictionary/share.png" alt="" />
+        &nbsp; &nbsp;
+        <img src="../../assets/godictionary/star-icon.png" alt="" (click)="toggleFav()" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

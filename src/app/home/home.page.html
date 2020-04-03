@@ -1,39 +1,47 @@
 <ion-header class="blue">
   <ion-toolbar color="transparent">
     <ion-buttons slot="start">
-      <ion-menu-button color="light"></ion-menu-button>
+      <ion-menu-button color="light" slot="start"></ion-menu-button>
     </ion-buttons>
     <ion-title color="light">
       Go Dictionary
     </ion-title>
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12">
+          <ion-input
+            placeholder="Search keyword"
+            (ionFocus)="onFocus($event.target.value)"
+            (ionBlur)="onBlur($event.target.value)"
+            (keyup)="onKey($event.target.value)"
+          ></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
-<ion-toolbar color="warning" class="shadow" style="margin: 0;">
-  <ion-grid>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="10">
-        <ion-input placeholder="Search keyword"></ion-input>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-toolbar>
-
 <ion-content>
-  <ion-grid>
-    <ion-row class="ion-justify-content-start">
-      <ion-col size="12" (click)="gotoPage('/listdetail/rr')">
+  <ion-list [hidden]="!inputHasData">
+    <ion-item *ngFor="let word of json" (click)="gotoDetailpage(word)">
+      <p>{{word.word}}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid [hidden]="inputHasData">
+    <ion-row class="flex-column ion-justify-content-between" style="height: 100%;">
+      <ion-col size="12" (click)="gotoPage('r')">
         <div class="home-nav">
           <ion-icon name="sync"></ion-icon>
           <span>Random word</span>
         </div>
       </ion-col>
-      <ion-col size="12" (click)="gotoPage('/favourites')">
+      <ion-col size="12" (click)="gotoPage('f')">
         <div class="home-nav">
           <ion-icon name="star"></ion-icon>
           <span>Favourites</span>
         </div>
       </ion-col>
-      <ion-col size="12" (click)="gotoPage('/about')">
+      <ion-col size="12" (click)="gotoPage('a')">
         <div class="home-nav">
           <ion-icon name="help"></ion-icon>
           <span>About</span>
