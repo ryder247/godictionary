@@ -8,10 +8,8 @@ import { RateusPageRoutingModule } from './rateus-routing.module';
 
 import { RateusPage } from './rateus.page';
 
-import { StarRatingModule } from 'ionic4-star-rating';
-
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, RateusPageRoutingModule, StarRatingModule],
+  imports: [CommonModule, FormsModule, IonicModule, RateusPageRoutingModule],
   declarations: [RateusPage],
 })
 export class RateusPageModule {}
