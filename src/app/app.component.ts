@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+  styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
   gotoApp = true;
@@ -17,43 +17,43 @@ export class AppComponent {
     {
       title: 'Home',
       url: 'h',
-      icon: 'home'
+      icon: 'home',
     },
     {
       title: 'Random word',
       url: 'r',
-      icon: 'sync'
+      icon: 'sync',
     },
     {
       title: 'Favourites',
       url: 'f',
-      icon: 'star'
+      icon: 'star',
     },
     {
       title: 'About',
       url: 'a',
-      icon: 'help'
+      icon: 'help',
     },
     {
       title: 'Developers',
       url: 'dev',
-      icon: 'people-outline'
+      icon: 'people-outline',
     },
     {
       title: 'Feedback',
       url: 'fbk',
-      icon: 'book-outline'
+      icon: 'book-outline',
     },
     {
       title: 'Help',
       url: 'hl',
-      icon: 'body-outline'
+      icon: 'body-outline',
     },
     {
       title: 'Rate us',
       url: 'ru',
-      icon: 'star-half-outline'
-    }
+      icon: 'star-half-outline',
+    },
   ];
   originalJson: any[];
 
@@ -66,11 +66,12 @@ export class AppComponent {
   ) {
     this.initializeApp();
 
-    this.http.get('../../assets/words.csv', { responseType: 'text' }).subscribe(res => {
-      let json = this.csvJSON(res);
-      json = json.filter(j => j.word);
-      this.originalJson = json;
-    });
+    const ljson = window.localStorage.getItem('json');
+    if (!!ljson) {
+      this.originalJson = JSON.parse(ljson);
+    } else {
+      delete this.appPages[1];
+    }
   }
 
   initializeApp() {

@@ -9,4 +9,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav>
+          <ion-slide *ngFor="let s of sliderOne.slidesItems">
+            <div class="flex-column ion-justify-content-evenly">
+              <h1 style="font-weight: 600;" [ngStyle]="{'color': s.color}">{{s.title}}</h1>
+              <p>{{s.desc}}</p>
+              <img [src]="s.image" style="width: 70%;" />
+              <div style="height: 2rem;">&nbsp;</div>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer class="yellow-solid">
+  <div class="yellow-solid ion-text-center">
+    <p class="yellow-solid" style="color: #ffffff;">Swipe to the left to continue</p>
+  </div>
+</ion-footer>

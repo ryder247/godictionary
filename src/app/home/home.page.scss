@@ -1,8 +1,7 @@
-ion-content ion-grid {
-  background-color: #a8094e;
-  height: 85vh;
-  background-image: url('../../assets/godictionary/home-bg.png');
-  background-position: center center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+ion-content {
+  --background: #fff url('../../assets/godictionary/home-bg.png') no-repeat center center / cover;
+}
+
+ion-col {
+  height: 33.3333%;
 }

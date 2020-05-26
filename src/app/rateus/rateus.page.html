@@ -9,4 +9,31 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>Rate this app</h1>
+        <small>Tell the others what you think</small>
+      </ion-col>
+      <ion-col>
+        <ionic4-star-rating
+          #rating
+          activeIcon="ios-star"
+          defaultIcon="ios-star-outline"
+          activeColor="#488aff"
+          defaultColor="#f4f4f4"
+          readonly="false"
+          rating="3"
+          fontSize="32px"
+          (ratingChanged)="logRatingChange($event)"
+        >
+        </ionic4-star-rating>
+      </ion-col>
+      <ion-col>
+        <ion-button color="danger">Give Feedback</ion-button>
+        <ion-button color="primary">Skip</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

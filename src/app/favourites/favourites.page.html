@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-list>
+  <ion-list *ngIf="!favs.length">
     <ion-item *ngFor="let f of favs" (click)="gotoDetailpage(f)">
       {{f.word}}
     </ion-item>

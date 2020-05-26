@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rateus.page.scss'],
 })
 export class RateusPage implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  logRatingChange(rating) {
+    console.log('changed rating: ', rating);
+    // do your stuff
   }
-
 }

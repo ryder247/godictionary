@@ -10,6 +10,20 @@ ion-header.blue {
   background-repeat: no-repeat;
 }
 
+ion-header.blue-solid,
+ion-footer.blue-solid {
+  background-color: #6e0761;
+}
+
+ion-header.yellow-solid,
+ion-footer.yellow-solid {
+  background-color: #c20b5b;
+}
+ion-header.purple-solid,
+ion-footer.purple-solid {
+  background-color: #241352;
+}
+
 ion-header.yellow {
   background-color: #c20b5b;
   background-image: url('../assets/godictionary/go-nav-bg.svg');

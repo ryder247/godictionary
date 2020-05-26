@@ -14,6 +14,7 @@
             (ionFocus)="onFocus($event.target.value)"
             (ionBlur)="onBlur($event.target.value)"
             (keyup)="onKey($event.target.value)"
+            [(ngModel)]="input"
           ></ion-input>
         </ion-col>
       </ion-row>
@@ -28,7 +29,7 @@
   </ion-list>
 
   <ion-grid [hidden]="inputHasData">
-    <ion-row class="flex-column ion-justify-content-between" style="height: 100%;">
+    <ion-row class="flex-column ion-justify-content-evenly" style="height: 85vh;">
       <ion-col size="12" (click)="gotoPage('r')">
         <div class="home-nav">
           <ion-icon name="sync"></ion-icon>

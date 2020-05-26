@@ -1,27 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss']
+  styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit, AfterViewInit {
   inputHasData = false;
-  items = ['ama', 'kwadjo'];
+  input = '';
   originalJson = [] as any;
   json = [] as any;
   constructor(private router: Router, private http: HttpClient) {}
 
-  ngOnInit(): void {
-    this.http.get('../../assets/words.csv', { responseType: 'text' }).subscribe(res => {
-      let json = this.csvJSON(res);
-      json = json.filter(j => j.word);
-      this.originalJson = json;
-      this.json = json;
-    });
+  ngAfterViewInit(): void {
+    const ljson = window.localStorage.getItem('json');
+    if (!!ljson) {
+      this.json = JSON.parse(ljson);
+      this.originalJson = [...this.json];
+    } else {
+      this.http.get('../../assets/words.csv', { responseType: 'text' }).subscribe((res) => {
+        let json = this.csvJSON(res);
+        json = json.filter((j) => j.word);
+        this.originalJson = json;
+        this.json = json;
+        window.localStorage.setItem('json', JSON.stringify(json));
+      });
+    }
   }
+
+  ngOnInit(): void {}
 
   gotoPage(url: string) {
     switch (url) {
@@ -42,7 +51,7 @@ export class HomePage implements OnInit {
 
   onKey(val: string) {
     if (val.length > 0) {
-      this.json = this.originalJson.filter(o => {
+      this.json = this.originalJson.filter((o: any) => {
         return o.word.toLowerCase().startsWith(val.toLowerCase());
       });
     }
@@ -55,12 +64,13 @@ export class HomePage implements OnInit {
 
   onBlur(val: string) {
     console.log(val);
-    if (val.length < 1) {
+    if (!val.length) {
       this.inputHasData = false;
+      this.input = '';
     }
   }
 
-  gotoDetailpage(word) {
+  gotoDetailpage(word: any) {
     this.router.navigate([`/listdetail/${word.id}/${word.word}/${word.wordtype}/${word.wordmeaning}`]);
   }
 
